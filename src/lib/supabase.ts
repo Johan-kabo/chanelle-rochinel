@@ -16,6 +16,7 @@ export interface RsvpData {
   will_attend: boolean
   guest_count: number
   message?: string
+  mood_emoji?: string
   created_at?: string
 }
 

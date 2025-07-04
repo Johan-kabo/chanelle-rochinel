@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Heart, Calendar, MapPin, Sparkles, Star } from 'lucide-react'
-import Countdown from './Countdown'
+import CountdownWithSurprises from './CountdownWithSurprises'
 import PhotoModal from './PhotoModal'
+import InteractiveStory from './InteractiveStory'
 
 const Home: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -102,6 +103,9 @@ const Home: React.FC = () => {
                 </div>
               </div>
             </div>
+
+            {/* Histoire interactive du couple */}
+            <InteractiveStory />
 
             {/* Galerie de photos du couple avec cadres de mariage élégants */}
             <div className="mb-12">
@@ -379,9 +383,9 @@ const Home: React.FC = () => {
               </div>
             </div>
 
-            {/* Compte à rebours */}
+            {/* Compte à rebours avec surprises */}
             <div className="transform transition-all duration-500 hover:scale-105">
-              <Countdown />
+              <CountdownWithSurprises />
             </div>
           </div>
         </div>
