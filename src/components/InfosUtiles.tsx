@@ -4,10 +4,10 @@ import { MapPin, Clock, Shirt, Car, Gift, Phone, ExternalLink, Navigation, Route
 const InfosUtiles: React.FC = () => {
   const [showDirections, setShowDirections] = useState(false)
 
-  // Coordonnées exactes de Ndogpassi 3, Douala
+  // Coordonnées exactes de Ndogpassi 3, Douala (basées sur votre iframe)
   const venueCoordinates = {
-    lat: 4.0614,
-    lng: 9.7061
+    lat: 4.0083233352947385,
+    lng: 9.7511018779739
   }
 
   const venueAddress = "Ndogpassi 3, Douala, Cameroun"
@@ -268,17 +268,17 @@ const InfosUtiles: React.FC = () => {
               <h3 className="text-2xl font-bold text-gray-800">Localisation & Navigation</h3>
             </div>
             
-            {/* Carte interactive */}
+            {/* Carte interactive avec vos coordonnées exactes */}
             <div className="aspect-video rounded-xl overflow-hidden mb-6 shadow-lg">
               <iframe
-                src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.823456789!2d${venueCoordinates.lng}!3d${venueCoordinates.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwMDMnNDEuMCJOIDnCsDQyJzIyLjAiRQ!5e0!3m2!1sfr!2scm!4v1234567890123!5m2!1sfr!2scm&maptype=roadmap&zoom=15`}
+                src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d562.5747398450485!2d9.7511018779739!3d4.0083233352947385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d4.0088444999999995!2d9.7511868!4m5!1s0x10610debcc83a139%3A0xd04fd649a36163a5!2s3Q29%2BC4H%2C%20Douala!3m2!1d4.0510564!2d9.7678687!5e0!3m2!1sfr!2scm!4v1751600599394!5m2!1sfr!2scm"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Ndogpassi 3, Douala - Lieu de réception"
+                title="Ndogpassi 3, Douala - Lieu de réception du mariage"
               />
             </div>
             
@@ -288,7 +288,7 @@ const InfosUtiles: React.FC = () => {
                 <h4 className="text-lg font-bold text-gray-800 mb-2">📍 Adresse exacte</h4>
                 <p className="text-gray-700 text-lg font-medium">{venueAddress}</p>
                 <p className="text-sm text-gray-600 mt-2">
-                  Coordonnées GPS: {venueCoordinates.lat}, {venueCoordinates.lng}
+                  Coordonnées GPS: {venueCoordinates.lat.toFixed(6)}, {venueCoordinates.lng.toFixed(6)}
                 </p>
               </div>
             </div>
