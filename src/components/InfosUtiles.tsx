@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { MapPin, Clock, Shirt, Car, Gift, Phone, ExternalLink, Navigation, Route, Map } from 'lucide-react'
+import { MapPin, Clock, Shirt, Car, Gift, Phone, ExternalLink, Navigation, Route, Map, MessageCircle } from 'lucide-react'
 
 const InfosUtiles: React.FC = () => {
   const [showDirections, setShowDirections] = useState(false)
@@ -13,6 +13,28 @@ const InfosUtiles: React.FC = () => {
   const venueAddress = "Ndogpassi 3, Douala, Cameroun"
   const venueAddressEncoded = encodeURIComponent(venueAddress)
 
+  // Informations de contact
+  const contacts = {
+    chanelle: {
+      name: "Chanelle",
+      phone: "+237652257129",
+      phoneDisplay: "+237 6 52 25 71 29",
+      whatsapp: "+237652257129"
+    },
+    rochinel: {
+      name: "Rochinel", 
+      phone: "+237687654321",
+      phoneDisplay: "+237 6 87 65 43 21",
+      whatsapp: "+237687654321"
+    },
+    urgence: {
+      name: "Urgence le jour J",
+      phone: "+237611223344", 
+      phoneDisplay: "+237 6 11 22 33 44",
+      whatsapp: "+237611223344"
+    }
+  }
+
   // URLs pour différentes applications de navigation
   const navigationUrls = {
     googleMaps: `https://www.google.com/maps/dir/?api=1&destination=${venueCoordinates.lat},${venueCoordinates.lng}&travelmode=driving`,
@@ -22,6 +44,16 @@ const InfosUtiles: React.FC = () => {
     appleMaps: `http://maps.apple.com/?daddr=${venueCoordinates.lat},${venueCoordinates.lng}`,
     uber: `https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[latitude]=${venueCoordinates.lat}&dropoff[longitude]=${venueCoordinates.lng}&dropoff[nickname]=${venueAddressEncoded}`,
     bolt: `https://bolt.eu/en/book-ride/?pickup_latitude=current&pickup_longitude=current&destination_latitude=${venueCoordinates.lat}&destination_longitude=${venueCoordinates.lng}`
+  }
+
+  // Fonctions pour les actions de contact
+  const makeCall = (phoneNumber: string) => {
+    window.open(`tel:${phoneNumber}`, '_self')
+  }
+
+  const sendWhatsApp = (phoneNumber: string, contactName: string) => {
+    const message = encodeURIComponent(`Bonjour ${contactName}, je vous contacte concernant votre mariage du 14 juillet 2025. `)
+    window.open(`https://wa.me/${phoneNumber.replace(/\+/g, '')}?text=${message}`, '_blank')
   }
 
   return (
@@ -120,23 +152,91 @@ const InfosUtiles: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 shadow-lg">
-              <div className="flex items-center mb-4">
+            {/* Section Contact améliorée avec boutons d'action */}
+            <div className="bg-white rounded-2xl p-6 shadow-lg lg:col-span-2">
+              <div className="flex items-center mb-6">
                 <Phone className="w-8 h-8 text-amber-500 mr-3" />
                 <h3 className="text-xl font-bold text-gray-800">Contact</h3>
               </div>
-              <div className="space-y-3">
-                <div>
-                  <p className="font-semibold text-gray-700">Chanelle</p>
-                  <p className="text-gray-600">06 12 34 56 78</p>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Contact Chanelle */}
+                <div className="bg-gradient-to-br from-rose-50 to-pink-50 rounded-xl p-4 border border-rose-100">
+                  <div className="text-center mb-4">
+                    <h4 className="font-bold text-gray-800 text-lg">{contacts.chanelle.name}</h4>
+                    <p className="text-gray-600 font-medium">{contacts.chanelle.phoneDisplay}</p>
+                  </div>
+                  
+                  <div className="flex space-x-2">
+                    <button
+                      onClick={() => makeCall(contacts.chanelle.phone)}
+                      className="flex-1 bg-green-500 text-white py-2 px-3 rounded-lg hover:bg-green-600 transition-all duration-200 transform hover:scale-105 shadow-md flex items-center justify-center space-x-2 text-sm"
+                    >
+                      <Phone className="w-4 h-4" />
+                      <span>Appeler</span>
+                    </button>
+                    
+                    <button
+                      onClick={() => sendWhatsApp(contacts.chanelle.whatsapp, contacts.chanelle.name)}
+                      className="flex-1 bg-green-600 text-white py-2 px-3 rounded-lg hover:bg-green-700 transition-all duration-200 transform hover:scale-105 shadow-md flex items-center justify-center space-x-2 text-sm"
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                      <span>WhatsApp</span>
+                    </button>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-semibold text-gray-700">Rochinel</p>
-                  <p className="text-gray-600">06 87 65 43 21</p>
+
+                {/* Contact Rochinel */}
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-100">
+                  <div className="text-center mb-4">
+                    <h4 className="font-bold text-gray-800 text-lg">{contacts.rochinel.name}</h4>
+                    <p className="text-gray-600 font-medium">{contacts.rochinel.phoneDisplay}</p>
+                  </div>
+                  
+                  <div className="flex space-x-2">
+                    <button
+                      onClick={() => makeCall(contacts.rochinel.phone)}
+                      className="flex-1 bg-blue-500 text-white py-2 px-3 rounded-lg hover:bg-blue-600 transition-all duration-200 transform hover:scale-105 shadow-md flex items-center justify-center space-x-2 text-sm"
+                    >
+                      <Phone className="w-4 h-4" />
+                      <span>Appeler</span>
+                    </button>
+                    
+                    <button
+                      onClick={() => sendWhatsApp(contacts.rochinel.whatsapp, contacts.rochinel.name)}
+                      className="flex-1 bg-green-600 text-white py-2 px-3 rounded-lg hover:bg-green-700 transition-all duration-200 transform hover:scale-105 shadow-md flex items-center justify-center space-x-2 text-sm"
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                      <span>WhatsApp</span>
+                    </button>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-semibold text-gray-700">Urgence le jour J</p>
-                  <p className="text-gray-600">06 11 22 33 44</p>
+              </div>
+
+              {/* Contact d'urgence */}
+              <div className="mt-6 bg-gradient-to-br from-red-50 to-orange-50 rounded-xl p-4 border border-red-100">
+                <div className="text-center mb-4">
+                  <h4 className="font-bold text-gray-800 text-lg">{contacts.urgence.name}</h4>
+                  <p className="text-gray-600 font-medium">{contacts.urgence.phoneDisplay}</p>
+                  <p className="text-xs text-gray-500 mt-1">En cas de problème le jour du mariage</p>
+                </div>
+                
+                <div className="flex space-x-2 max-w-sm mx-auto">
+                  <button
+                    onClick={() => makeCall(contacts.urgence.phone)}
+                    className="flex-1 bg-red-500 text-white py-2 px-3 rounded-lg hover:bg-red-600 transition-all duration-200 transform hover:scale-105 shadow-md flex items-center justify-center space-x-2 text-sm"
+                  >
+                    <Phone className="w-4 h-4" />
+                    <span>Appeler</span>
+                  </button>
+                  
+                  <button
+                    onClick={() => sendWhatsApp(contacts.urgence.whatsapp, "l'équipe")}
+                    className="flex-1 bg-green-600 text-white py-2 px-3 rounded-lg hover:bg-green-700 transition-all duration-200 transform hover:scale-105 shadow-md flex items-center justify-center space-x-2 text-sm"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    <span>WhatsApp</span>
+                  </button>
                 </div>
               </div>
             </div>
