@@ -61,6 +61,11 @@ const AdminView: React.FC = () => {
     })
   }
 
+  const sendWhatsApp = (phoneNumber: string, contactName: string) => {
+    const message = encodeURIComponent(`Bonjour ${contactName}, je vous contacte concernant votre mariage du 09 août 2025. `)
+    window.open(`https://wa.me/${phoneNumber.replace(/\+/g, '')}?text=${message}`, '_blank')
+  }
+
   if (!isAuthenticated) {
     return (
       <section className="py-16 bg-gradient-to-br from-slate-50 to-gray-100 min-h-screen">

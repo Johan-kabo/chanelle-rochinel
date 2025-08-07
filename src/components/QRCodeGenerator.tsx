@@ -13,10 +13,10 @@ const QRCodeGenerator: React.FC<QRCodeGeneratorProps> = ({ guestName, guestEmail
   // Générer les données du QR code
   const qrData = {
     event: "Mariage Chanelle & Rochinel",
-    date: "2025-07-14",
+    date: "2025-08-09",
     guest: guestName,
     email: guestEmail,
-    venue: "Ndogpassi 3, Douala",
+    venue: "Bobongo et Ndogpassi 3, Douala",
     checkInCode: `CR2025-${Date.now().toString(36).toUpperCase()}`
   }
 

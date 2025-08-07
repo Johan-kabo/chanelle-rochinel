@@ -32,7 +32,7 @@ const InteractiveStory: React.FC = () => {
     },
     {
       title: "Notre mariage",
-      date: "14 Juillet 2025",
+      date: "09 Août 2025",
       content: "Aujourd'hui, nous vous invitons à célébrer avec nous le début de notre nouvelle aventure. Votre présence sera notre plus beau cadeau !",
       image: "/WhatsApp Image 2025-07-03 à 17.28.56_f8a16a25.jpg",
       icon: <Calendar className="w-6 h-6" />,
