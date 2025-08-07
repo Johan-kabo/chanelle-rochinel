@@ -146,7 +146,7 @@ const RSVPForm: React.FC = () => {
               Confirmer votre présence
             </h2>
             <p className="text-xl text-gray-600 mb-6">
-              Nous vous prions de bien vouloir confirmer votre présence avant le 1er juin 2025
+              Nous vous prions de bien vouloir confirmer votre présence avant le 1er août 2025
             </p>
 
             {/* Sélecteur de type de formulaire */}

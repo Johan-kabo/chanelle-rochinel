@@ -45,7 +45,7 @@ const CountdownWithSurprises: React.FC = () => {
   ]
 
   useEffect(() => {
-    const weddingDate = new Date('2025-07-14T14:00:00').getTime()
+    const weddingDate = new Date('2025-08-09T11:00:00').getTime()
 
     const timer = setInterval(() => {
       const now = new Date().getTime()

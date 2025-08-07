@@ -77,16 +77,16 @@ const InfosUtiles: React.FC = () => {
               </div>
               <div className="space-y-3">
                 <div>
-                  <p className="font-semibold text-gray-700">Cérémonie</p>
-                  <p className="text-gray-600">14h00 - 15h30</p>
+                  <p className="font-semibold text-gray-700">Mariage civil</p>
+                  <p className="text-gray-600">11h00 - Centre d'état civil secondaire de Bobongo</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-gray-700">Cocktail</p>
-                  <p className="text-gray-600">15h30 - 17h00</p>
+                  <p className="font-semibold text-gray-700">Mariage religieux</p>
+                  <p className="text-gray-600">14h00 - Paroisse EEC de Ndogpassi 3</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-gray-700">Dîner & Soirée</p>
-                  <p className="text-gray-600">17h00 - 2h00</p>
+                  <p className="font-semibold text-gray-700">Cocktail & réjouissances</p>
+                  <p className="text-gray-600">18h30 - Salle Le Bien-Être face COGENI</p>
                 </div>
               </div>
             </div>
@@ -128,7 +128,7 @@ const InfosUtiles: React.FC = () => {
                 </div>
                 <div>
                   <p className="font-semibold text-gray-700">Localisation</p>
-                  <p className="text-gray-600">Quartier Ndogpassi 3, Douala</p>
+                  <p className="text-gray-600">Ndogpassi 3 et Bobongo, Douala</p>
                 </div>
               </div>
             </div>
@@ -265,10 +265,37 @@ const InfosUtiles: React.FC = () => {
           <div className="bg-white rounded-2xl p-6 shadow-lg">
             <div className="flex items-center justify-center mb-6">
               <MapPin className="w-8 h-8 text-amber-500 mr-3" />
-              <h3 className="text-2xl font-bold text-gray-800">Localisation & Navigation</h3>
+              <h3 className="text-2xl font-bold text-gray-800">Lieux des cérémonies</h3>
             </div>
             
-            {/* Carte interactive avec vos coordonnées exactes */}
+            {/* Informations des lieux */}
+            <div className="grid md:grid-cols-3 gap-4 mb-6">
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-100">
+                <h4 className="font-bold text-blue-800 mb-2 flex items-center">
+                  <Clock className="w-5 h-5 mr-2" />
+                  11h00 - Mariage civil
+                </h4>
+                <p className="text-blue-700 text-sm">Centre d'état civil secondaire de Bobongo</p>
+              </div>
+              
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-4 border border-purple-100">
+                <h4 className="font-bold text-purple-800 mb-2 flex items-center">
+                  <Clock className="w-5 h-5 mr-2" />
+                  14h00 - Mariage religieux
+                </h4>
+                <p className="text-purple-700 text-sm">Paroisse EEC de Ndogpassi 3</p>
+              </div>
+              
+              <div className="bg-gradient-to-br from-rose-50 to-pink-50 rounded-xl p-4 border border-rose-100">
+                <h4 className="font-bold text-rose-800 mb-2 flex items-center">
+                  <Clock className="w-5 h-5 mr-2" />
+                  18h30 - Cocktail & réjouissances
+                </h4>
+                <p className="text-rose-700 text-sm">Salle de fête Le Bien-Être face COGENI marché Ndogpassi</p>
+              </div>
+            </div>
+            
+            {/* Carte interactive */}
             <div className="aspect-video rounded-xl overflow-hidden mb-6 shadow-lg">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d562.5747398450485!2d9.7511018779739!3d4.0083233352947385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d4.0088444999999995!2d9.7511868!4m5!1s0x10610debcc83a139%3A0xd04fd649a36163a5!2s3Q29%2BC4H%2C%20Douala!3m2!1d4.0510564!2d9.7678687!5e0!3m2!1sfr!2scm!4v1751600599394!5m2!1sfr!2scm"
@@ -278,15 +305,15 @@ const InfosUtiles: React.FC = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Ndogpassi 3, Douala - Lieu de réception du mariage"
+                title="Lieux des cérémonies du mariage - Douala"
               />
             </div>
             
-            {/* Informations du lieu */}
+            {/* Informations générales */}
             <div className="text-center mb-6">
               <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl p-4 mb-4">
-                <h4 className="text-lg font-bold text-gray-800 mb-2">📍 Adresse exacte</h4>
-                <p className="text-gray-700 text-lg font-medium">{venueAddress}</p>
+                <h4 className="text-lg font-bold text-gray-800 mb-2">📍 Quartiers</h4>
+                <p className="text-gray-700 text-lg font-medium">Bobongo et Ndogpassi 3, Douala</p>
                 <p className="text-sm text-gray-600 mt-2">
                   Coordonnées GPS: {venueCoordinates.lat.toFixed(6)}, {venueCoordinates.lng.toFixed(6)}
                 </p>
@@ -408,6 +435,7 @@ const InfosUtiles: React.FC = () => {
                   <li>• Depuis l'aéroport: 25-35 min</li>
                   <li>• Depuis le centre-ville: 15-20 min</li>
                   <li>• Depuis Akwa: 20-25 min</li>
+                  <li>• Entre Bobongo et Ndogpassi 3: 10-15 min</li>
                 </ul>
               </div>
 
@@ -417,9 +445,10 @@ const InfosUtiles: React.FC = () => {
                   Points de repère
                 </h5>
                 <ul className="text-orange-700 text-sm space-y-1">
+                  <li>• Centre d'état civil de Bobongo</li>
                   <li>• Proche du marché Ndogpassi</li>
-                  <li>• À côté de l'école primaire</li>
-                  <li>• Face à la pharmacie du quartier</li>
+                  <li>• Salle Le Bien-Être face COGENI</li>
+                  <li>• Paroisse EEC de Ndogpassi 3</li>
                 </ul>
               </div>
             </div>
@@ -427,7 +456,7 @@ const InfosUtiles: React.FC = () => {
             {/* Note importante */}
             <div className="mt-6 p-4 bg-gradient-to-r from-rose-50 to-pink-50 rounded-xl border border-rose-200">
               <p className="text-rose-800 text-sm text-center">
-                💡 <strong>Conseil :</strong> Nous recommandons d'arriver 15 minutes avant le début de la cérémonie. 
+                💡 <strong>Conseil :</strong> Nous recommandons d'arriver 15 minutes avant le début de chaque cérémonie. 
                 En cas de difficulté pour trouver le lieu, n'hésitez pas à nous appeler !
               </p>
             </div>

@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
   }
 
   const sendWhatsApp = (phoneNumber: string, contactName: string) => {
-    const message = encodeURIComponent(`Bonjour ${contactName}, je vous contacte concernant votre mariage du 14 juillet 2025. `)
+    const message = encodeURIComponent(`Bonjour ${contactName}, je vous contacte concernant votre mariage du 09 août 2025. `)
     window.open(`https://wa.me/${phoneNumber.replace(/\+/g, '')}?text=${message}`, '_blank')
   }
 

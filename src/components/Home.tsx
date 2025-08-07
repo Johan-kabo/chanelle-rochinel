@@ -345,14 +345,15 @@ const Home: React.FC = () => {
                   <div className="w-16 h-16 bg-gradient-to-br from-rose-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                     <Calendar className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-4">Date & Heure</h3>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-4">Date & Programme</h3>
                   <div className="space-y-2">
-                    <p className="text-xl font-semibold text-gray-700">Lundi 14 Juillet 2025</p>
-                    <p className="text-lg text-gray-600">à partir de 14h00</p>
+                    <p className="text-xl font-semibold text-gray-700">Samedi 09 Août 2025</p>
                     <div className="mt-4 p-3 bg-rose-50 rounded-xl">
-                      <p className="text-sm text-rose-700 font-medium">
-                        Cérémonie • Cocktail • Dîner • Soirée dansante
-                      </p>
+                      <div className="text-sm text-rose-700 font-medium space-y-1">
+                        <p>11h00 - Mariage civil</p>
+                        <p>14h00 - Mariage religieux</p>
+                        <p>18h30 - Cocktail & réjouissances</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -363,10 +364,22 @@ const Home: React.FC = () => {
                   <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                     <MapPin className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-4">Lieu de réception</h3>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-4">Lieux des cérémonies</h3>
                   <div className="space-y-2">
-                    <p className="text-xl font-semibold text-gray-700">Ndogpassi 3</p>
-                    <p className="text-lg text-gray-600">Douala, Cameroun</p>
+                    <div className="text-sm text-gray-700 space-y-2">
+                      <div>
+                        <p className="font-semibold">Civil:</p>
+                        <p>Centre d'état civil secondaire de Bobongo</p>
+                      </div>
+                      <div>
+                        <p className="font-semibold">Religieux:</p>
+                        <p>Paroisse EEC de Ndogpassi 3</p>
+                      </div>
+                      <div>
+                        <p className="font-semibold">Réception:</p>
+                        <p>Salle Le Bien-Être face COGENI</p>
+                      </div>
+                    </div>
                     <div className="mt-4 p-3 bg-purple-50 rounded-xl">
                       <a 
                         href="https://maps.app.goo.gl/PXMRTGVWcbUDGeCt8"
@@ -375,7 +388,7 @@ const Home: React.FC = () => {
                         className="text-sm text-purple-700 font-medium hover:text-purple-800 transition-colors flex items-center justify-center space-x-2"
                       >
                         <MapPin className="w-4 h-4" />
-                        <span>Voir sur Google Maps</span>
+                        <span>Voir les lieux sur Google Maps</span>
                       </a>
                     </div>
                   </div>
